@@ -23,6 +23,7 @@
 > 
 > 3.scale-out: nosql 은 클러스터링을 구성하여 사용해서 scale-out 에 용이하다.  
 > 
+> 4.high throughput, low latency: 높은 처리량, 낮은 지연이 특징이다. 단 이를 위해서 데이터의 일관성(consistency)은 잉정부분 떨어질 수 있다.
 
 ### 참조 사이트
 > [NoSQL 설명!! RDB와는 어떤 차이가 있는지도 설명!! MongoDB, Redis 매우 간단한 예제 포함!!](https://www.youtube.com/watch?v=sqVByJ5tbNA)
