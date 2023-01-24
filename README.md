@@ -13,6 +13,10 @@
 ---
 
 ## NoSQL
+### 등장 배경
+> 대부분이 RDB 가 scale out 이 힘들고 RDB 의 부하 처리 이상의 데이터 트래픽이 발생했을 때 NoSQL 을 등장시켜서
+> 문제를 해결하였음.  
+
 ### NoSQL 특징
 > 1.flexible schema: 스키마 관리를 DB 가 아닌 application 에서 한다.    
 > 
@@ -27,3 +31,9 @@
 
 ### 참조 사이트
 > [NoSQL 설명!! RDB와는 어떤 차이가 있는지도 설명!! MongoDB, Redis 매우 간단한 예제 포함!!](https://www.youtube.com/watch?v=sqVByJ5tbNA)
+
+## DynamoDB
+### 등장 배경
+> 기존 Amazon 에서 RDB 만 사용하던 시절에 RDB 에 감당할 수 없는 부하가 발생하였음.
+> 그런데 조사를 해보니 부하의 약 90% 정도가 join 이 많은 조회라기 보다는 key value 에 적합한 형태의 데이터 조회였음.
+> 그래서 DynamoDB 서비스를 도입하며 런칭함.
