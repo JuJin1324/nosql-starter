@@ -10,6 +10,14 @@
 >
 > transaction 이 제공하는 ACID 를 보장하기 위해서 DB 서버의 퍼포먼스에 영향을 미침.  
 
+### Amazon Aurora DB 요금
+> db.t3.medium   
+> CPU/메모리: 2코어/4GB  
+> 시간당 요금: 0.125 USD  
+> 
+> 스토리지 요금: 월별 1GB 당 0.12 USD  
+> I/O 요금: 1백만 요청당 0.24 USD  
+
 ---
 
 ## NoSQL
@@ -130,6 +138,11 @@
 > DynamoDB 는 DynamoDB 를 사용하는 애플리케이션에서 적절한 엑세스 패턴을 고려해서 테이블을 설계를 진행해야한다. 
 > GSI 추가는 비용의 추가를 유발하기 때문에 최대한 사용을 자제해야한다.  
 
+### AWS DynamoDB 요금
+> 스토리지 요금: 매월 25GB 까지 무료로 저장, 이후 월별 1GB 당 0.27075 USD  
+> 쓰기 요청 유닛 1백만 건당 1.35556 USD  
+> 읽기 요청 유닛 1백만 건당 0.271 USD  
+
 ## MongoDB
 ### 특징
 > 비정형화된 데이터 저장: 기존의 RDB 의 정형화된 테이블은 각 서비스를 사용하는 유저의 개인화된 데이터를 유연하게 대처할 수 없다.  
@@ -143,3 +156,33 @@
 > Embedded Data Model 이 Document 의 항목에 Document 를 추가하여 저장하는 방식으로 대부분의 구글링에서 MongoDB 를 사용시 추천하는 방식이며,
 > Reference Data Model 은 RDB 에서 각 Document 를 따로 분리하여 ID(키)로 조인하는 방식이다.  
 > MongoDB 의 락은 Document(RDB 에서의 Table) Lock 이 최소 lock 단위이기 때문에 Embedded Data Model 을 사용하게 되면 동시성 측면에서 RDB 에 비해서 불리하다.    
+
+### Amazon DocumentDB 요금
+> db.t3.medium   
+> CPU/메모리: 2코어/4GB  
+> 시간당 요금: 0.119 USD  
+> 
+> 스토리지 요금: 월별 1GB 당 0.12 USD  
+> I/O 요금: 1백만 요청당 0.24 USD
+
+## Redis
+### 주용도
+> RDB 데이터 캐싱  
+> 웹 애플리케이션에서 DB 로 데이터를 요청하기 전에 Redis 에서 먼저 확인.   
+> Redis 에 있는 경우 애플리케이션은 Redis 에 있는 데이터를 반환받아서 요청 처리(DB 에는 접근 안함).  
+> Redis 에 없는 경우 애플리케이션이 DB 에 요청하여 데이터를 가져온 후 Redis 에 저장.  
+> Redis 는 RAM 을 사용하는 In-Memory DB 이기 때문에 Disk 를 사용하는 RDB 보다 빠른 요청처리가 가능.  
+
+### 사용처
+> 1.Remote Data Store  
+> A서버, B서버, C서버에서 데이터를 공유하고 싶을 때 사용.  
+> 
+> 2.쓰레드 세이프한 데이터 저장 용도.  
+> 3.인증 토큰 저장  
+> 4.유저 API Limit  
+
+### AWS Elastic Cache 요금
+> cache.t3.medium  
+> CPU/메모리: 2코어/3GB  
+> 시간당 요금: 0.099 USD  
+> 네트워크 성능: 최대 5기가비트
