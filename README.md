@@ -130,4 +130,16 @@
 > DynamoDB 는 DynamoDB 를 사용하는 애플리케이션에서 적절한 엑세스 패턴을 고려해서 테이블을 설계를 진행해야한다. 
 > GSI 추가는 비용의 추가를 유발하기 때문에 최대한 사용을 자제해야한다.  
 
+## MongoDB
+### 특징
+> 비정형화된 데이터 저장: 기존의 RDB 의 정형화된 테이블은 각 서비스를 사용하는 유저의 개인화된 데이터를 유연하게 대처할 수 없다.  
+> scale up 및 scale out 에 대한 무중단 증가 가능. 클라우드 환경에 적합: 기존의 RDB 는 scale up 위주이며 사용량에 따른 scale out 확장성이 떨어짐.
 
+### 단점
+> RDB 는 스키마를 시스템에 저장하기 때문에 디스크에는 컬럼에 들어가는 값만 저장하면 된다. 하지만 mongoDB 의 경우 스키마가 시스템에 없이 디스크에 스키마가 값과 함께
+> 저장됨으로 RDB 에 비해서 디스크에 저장하는 데이터가 3배까지도 많이 차이가 날 수 있다. 또한 Disk IO 로 인하여 성능이 취약해 질 가능성이 있다.    
+> 
+> mongoDB 의 Modeling Pattern 에는 Embedded Data Model 과 Reference Data Model 이 있다.  
+> Embedded Data Model 이 Document 의 항목에 Document 를 추가하여 저장하는 방식으로 대부분의 구글링에서 MongoDB 를 사용시 추천하는 방식이며,
+> Reference Data Model 은 RDB 에서 각 Document 를 따로 분리하여 ID(키)로 조인하는 방식이다.  
+> MongoDB 의 락은 Document(RDB 에서의 Table) Lock 이 최소 lock 단위이기 때문에 Embedded Data Model 을 사용하게 되면 동시성 측면에서 RDB 에 비해서 불리하다.    
