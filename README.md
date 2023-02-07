@@ -192,7 +192,8 @@
 > 3.인증 토큰 저장  
 > 4.유저 API Limit  
 
-### AWS Elastic Cache 요금
+### Amazon Elastic Cache 요금
+> 2023.01 기준  
 > cache.t3.medium  
 > CPU/메모리: 2코어/3GB  
 > 시간당 요금: 0.099 USD  
